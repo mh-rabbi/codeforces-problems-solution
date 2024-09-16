@@ -1,0 +1,28 @@
+### Problem Breakdown:
+
+This problem revolves around an important integer \( n \) that Dmitry accidentally wrote incorrectly. The number \( n \) was supposed to have the form
+\( 10^x \times y \), but Dmitry missed the symbol '^' (exponentiation), meaning the result is a concatenation of numbers rather than exponentiation. 
+The task is to determine which of the integers could have been the important integer \( n \) that Dmitry miswrote.
+
+### Key Insights:
+
+1. **Number Structure**: 
+   - The correct form of \( n \) is supposed to be \( 10^x \times y \) for some integer \( x >=2 \).
+   - For example:
+     - \( 10^5 \) becomes 100000, but Dmitry wrote it as 105.
+     - \( 10^19 \) becomes a large number, but Dmitry wrote it as 1019.
+
+2. **What Dmitry Wrote**:
+   - Instead of the correct number, Dmitry writes down something like "105" or "1019".
+   - We need to figure out which integers could have been the result of this kind of mistake.
+
+### How to Approach the Solution:
+
+We know that Dmitry could only have miswritten the number for exponents \( x >= 2 \). For practical purposes, based on the constraints, we focus on a few specific patterns:
+- For \( x = 2 \): The numbers will have the form `100 + y` where \( y \) is a number between 2 and 9 (i.e., 102, 103, ..., 109).
+- For \( x = 3 \): The numbers will have the form `1000 + y` where \( y \) is a number between 10 and 99 (i.e., 1010, 1011, ..., 1099).
+
+The solution precomputes all these numbers in an array `imp[]`, marking them as possible miswritings of the important number. 
+
+
+This approach uses precomputation to mark all possible miswritten numbers and then simply checks for each test case if the number exists in this precomputed list.
